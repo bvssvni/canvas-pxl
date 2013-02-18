@@ -4,6 +4,10 @@
 
 18.02.2013
 
+Add 'flattr' button.
+Add pick color.
+*Open preview as png by clicking on it.
+*Change order of 'Clear' and 'Update Url'.
 *Change design.
 *Add links in the bottom.
 *Eraser to the right.

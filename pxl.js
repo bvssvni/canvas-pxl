@@ -32,6 +32,12 @@ function mousePos(canvas, event) {
 	return [event.clientX - rect.left, event.clientY - rect.top];
 }
 
+function openAsPNG(id) {
+	var canvas = document.getElementById(id);
+	window.open(canvas.toDataURL("image/png"));
+	return false;
+}
+
 function renderLine(ctx, x1, y1, x2, y2) {
 	if (ctx == null) throw "Missing argument \"ctx\"";
 	if (x1 == null) throw "Missing argument \"x\"";

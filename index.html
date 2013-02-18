@@ -47,12 +47,15 @@
 </canvas>
 </td>
 <td>
+<a href="#" onclick="return openAsPNG('preview4');">
 <canvas id="preview4" width="64" height="64">
-</canvas>
+</canvas></a>
+<a href="#" onclick="return openAsPNG('preview2');">
 <canvas id="preview2" width="32" height="32">
-</canvas>
+</canvas></a>
+<a href="#" onclick="return openAsPNG('preview');">
 <canvas id="preview" width="16" height="16">
-</canvas>
+</canvas></a>
 <br />
 <input type="text" class="color {onImmediateChange:'updateColor(this);'}" value="000000" />
 <br />
@@ -62,8 +65,8 @@
 </table>
 </p>
 <p>
-<input type="button" onclick="updateUrl();" value="Update Url" />
 <input type="button" onclick="onClear();" value="Clear" />
+<input type="button" onclick="updateUrl();" value="Update Url" />
 </p>
 <hr />
 <p>
