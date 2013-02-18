@@ -142,7 +142,7 @@ function renderSquares() {
 	var ctx = workarea_context;
 	for (var i = 0; i < squares.length; i++) {
 		var c = square_colors[i];
-		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+");";
+		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+")";
 		ctx.fillStyle = str;
 		
 		var square = squares[i];
@@ -158,7 +158,7 @@ function renderPreview(id, scale) {
 	var ctx = preview.getContext("2d");
 	for (var i = 0; i < squares.length; i++) {
 		var c = square_colors[i];
-		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+");";
+		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+")";
 		ctx.fillStyle = str;
 		
 		var square = squares[i];
@@ -204,6 +204,7 @@ function makeAddPixel(id) {
 		var gx = gridPos[0];
 		var gy = gridPos[1];
 		var color = selected_color;
+		
 		erasePixel(gx, gy);
 		if (!erase) {
 			addSquare(gx, gy, color);
