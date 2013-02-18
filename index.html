@@ -6,7 +6,9 @@
 <script src="pxl.js">
 </script>
 <style>
-	body { -webkit-user-select: none; }
+	body {
+		-webkit-user-select: none;
+	}
 	#workarea {
 		border: 1px solid;
 	}
@@ -22,13 +24,12 @@
 	td {
 		vertical-align: top;
 	}
+	p {
+		margin: 0px;
+	}
 </style>
 </head>
 <body onload="onLoad();">
-<p>
-<input type="text" class="color {onImmediateChange:'updateColor(this);'}" value="000000" />
-<input id="eraser" type="checkbox" /> Erase
-</p>
 <p>
 <table>
 <tr>
@@ -37,16 +38,16 @@
 </canvas>
 </td>
 <td>
-<canvas id="preview" width="16" height="16">
-</canvas>
-</td>
-<td>
-<canvas id="preview2" width="32" height="32">
-</canvas>
-</td>
-<td>
 <canvas id="preview4" width="64" height="64">
 </canvas>
+<canvas id="preview2" width="32" height="32">
+</canvas>
+<canvas id="preview" width="16" height="16">
+</canvas>
+<br />
+<input type="text" class="color {onImmediateChange:'updateColor(this);'}" value="000000" />
+<br />
+<input id="eraser" type="checkbox" /> Erase
 </td>
 </tr>
 </table>

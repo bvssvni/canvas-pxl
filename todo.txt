@@ -2,6 +2,13 @@
 + Completed on later day.
 - Decided against on later day.
 
+18.02.2013
+
+*Eraser to the right.
+*Color picker to the right.
+*Margin in p-tags to 0.
+*Bug preview are not clearing drawing.
+
 17.02.2013
 
 Palette.

@@ -156,6 +156,9 @@ function renderSquares() {
 function renderPreview(id, scale) {
 	var preview = document.getElementById(id);
 	var ctx = preview.getContext("2d");
+	var w = preview.width;
+	var h = preview.height;
+	ctx.clearRect(0, 0, w, h);
 	for (var i = 0; i < squares.length; i++) {
 		var c = square_colors[i];
 		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+")";
