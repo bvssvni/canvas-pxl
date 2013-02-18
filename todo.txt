@@ -4,6 +4,8 @@
 
 18.02.2013
 
+*Change design.
+*Add links in the bottom.
 *Eraser to the right.
 *Color picker to the right.
 *Margin in p-tags to 0.

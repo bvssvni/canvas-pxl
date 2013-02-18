@@ -22,6 +22,7 @@ var selected_color = [0, 0, 0, 1];
 var workarea_width = 0;
 var workarea_height = 0;
 var workarea_context = null;
+var workarea_background_style = "#FFFFFF";
 var grid_style = "#888888";
 var grid_width = 16;
 var grid_height = 16;
@@ -158,7 +159,8 @@ function renderPreview(id, scale) {
 	var ctx = preview.getContext("2d");
 	var w = preview.width;
 	var h = preview.height;
-	ctx.clearRect(0, 0, w, h);
+	ctx.fillStyle = workarea_background_style;
+	ctx.fillRect(0, 0, w, h);
 	for (var i = 0; i < squares.length; i++) {
 		var c = square_colors[i];
 		var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+")";
@@ -179,7 +181,8 @@ function renderWorkArea() {
 	workarea_width = workarea.width;
 	workarea_height = workarea.height;
 	
-	ctx.clearRect(0, 0, workarea_width, workarea_height);
+	ctx.fillStyle = workarea_background_style;
+	ctx.fillRect(0, 0, workarea_width, workarea_height);
 	
 	renderSquares();
 	renderGrid();
