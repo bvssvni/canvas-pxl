@@ -6,8 +6,10 @@
 
 Add undo and redo.
 Make the page remember the last selected color when refreshing.
+Make the tool images transparent.
 Add quotes.
-Add 'flattr' button.
+*Add analytics.
+*Add 'flattr' button.
 *Add pick color.
 *Radio buttons for tools.
 *Link to Cutout Pro.
