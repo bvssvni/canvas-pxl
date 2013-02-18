@@ -10,7 +10,10 @@
  */
 
 var workarea_id = "workarea";
+var pencil_id = "pencil";
 var eraser_id = "eraser";
+var color_picker_id = "colorPicker";
+var selected_color_id = "selectedColor";
 var preview_id = "preview";
 var preview2_id = "preview2";
 var preview4_id = "preview4";
@@ -26,6 +29,10 @@ var workarea_background_style = "#FFFFFF";
 var grid_style = "#888888";
 var grid_width = 16;
 var grid_height = 16;
+
+$(function() {
+  $( "#tool" ).buttonset();
+});
 
 function mousePos(canvas, event) {
 	var rect = canvas.getBoundingClientRect();
@@ -127,6 +134,21 @@ function erasePixel(x, y) {
 	}
 }
 
+function pickColorAt(x, y) {
+	var n = squares.length;
+	for (var i = 0; i < n; i++) {
+		var square = squares[i];
+		var sx = square[0];
+		var sy = square[1];
+		if (sx == x && sy == y) {
+			return square_colors[i];
+		}
+	}
+	
+	// Return white as default.
+	return [255, 255, 255];
+}
+
 function addSquare(x, y, color) {
 	squares.push([x, y]);
 	square_colors.push(color);
@@ -201,14 +223,20 @@ function renderWorkArea() {
 function makeAddPixel(id) {
 	var box = document.getElementById(id);
 	var dragging = false;
+	var pencil = document.getElementById(pencil_id);
 	var eraser = document.getElementById(eraser_id);
+	var colorPicker = document.getElementById(color_picker_id);
+	var selectedColor = document.getElementById(selected_color_id);
 	
 	var addPixel = function(event) {
 		if (!dragging) {
 			return false;
 		}
 		
-		var erase = eraser.checked;
+		var shouldPickColor = colorPicker.checked;
+		var shouldErase = eraser.checked || pencil.checked;
+		var shouldAddSquare = pencil.checked;
+		
 		var pos = mousePos(box, event);
 		var x = pos[0];
 		var y = pos[1];
@@ -217,9 +245,16 @@ function makeAddPixel(id) {
 		var gy = gridPos[1];
 		var color = selected_color;
 		
-		erasePixel(gx, gy);
-		if (!erase) {
+		
+		if (shouldErase) {
+			erasePixel(gx, gy);
+		}
+		if (shouldAddSquare) {
 			addSquare(gx, gy, color);
+		}
+		if (shouldPickColor) {
+			var c = pickColorAt(gx, gy);
+			selectedColor.color.fromRGB(c[0]/255, c[1]/255, c[2]/255);
 		}
 		
 		renderWorkArea();

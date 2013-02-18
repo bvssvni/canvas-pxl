@@ -4,9 +4,12 @@
 
 18.02.2013
 
+Add undo and redo.
+Make the page remember the last selected color when refreshing.
 Add quotes.
 Add 'flattr' button.
-Add pick color.
+*Add pick color.
+*Radio buttons for tools.
 *Link to Cutout Pro.
 *Manual link.
 *Open preview as png by clicking on it.

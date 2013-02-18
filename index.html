@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script type="text/javascript" src="jscolor/jscolor.js">
 </script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="pxl.js">
 </script>
 <style>
@@ -11,6 +14,7 @@
 		background-color: #eeeeee;
 		color: #333333;
 		font-family: Georgia;
+		font-size: 11pt;
 	}
 	#workarea {
 		border: 1px solid;
@@ -61,9 +65,18 @@
 <canvas id="preview" width="16" height="16">
 </canvas></a>
 <br />
-<input type="text" class="color {onImmediateChange:'updateColor(this);'}" value="000000" />
+<input id="selectedColor" type="text" class="color {onImmediateChange:'updateColor(this);'}" value="000000" />
 <br />
-<input id="eraser" type="checkbox" /> Erase
+<span id="tool">
+<input id="pencil" type="radio" name="tool" checked>
+	<label for="pencil"><img title="Pencil" src="pencil.png" /></label>
+<br />
+<input id="eraser" type="radio" name="tool" />
+	<label for="eraser"><img title="Eraser" src="eraser.png" /></label>
+<br />
+<input id="colorPicker" type="radio" name="tool" />
+	<label for="colorPicker"><img title="Color Picker" src="color-picker.png" /></label>
+</span>
 </td>
 </tr>
 </table>
