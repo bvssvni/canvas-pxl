@@ -1,0 +1,23 @@
+* Completed on same day.
++ Completed on later day.
+- Decided against on later day.
+
+17.02.2013
+
+Palette.
+*Draw grid on top of squares.
+*Repository with LGPL license.
+*LZW compression.
+*Remove alpha to support 32 bit.
+*Preview quadruple the size.
+*Preview twice the size.
+*Preview.
+*Cursor to crosshair when down.
+*Eraser.
+*Pick color.
+*Read data from url.
+*Save data in url.
+*Remove old pixels when adding a new.
+*Add pixel on dragging.
+*Draw grid.
+*Add pixel on mouse down.
