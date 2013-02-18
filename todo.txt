@@ -4,8 +4,11 @@
 
 18.02.2013
 
+Add quotes.
 Add 'flattr' button.
 Add pick color.
+*Link to Cutout Pro.
+*Manual link.
 *Open preview as png by clicking on it.
 *Change order of 'Clear' and 'Update Url'.
 *Change design.

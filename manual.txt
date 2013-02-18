@@ -1,0 +1,9 @@
+PXL - V0.000
+
+SAVE IMAGE AS PNG
+
+Click on one of the preview images.
+A new window will appear.
+Go to file, Save As and give it a name.
+Click OK.
+
