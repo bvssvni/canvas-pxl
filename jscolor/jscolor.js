@@ -172,20 +172,15 @@ var jscolor = {
 
 
 	getRelMousePos : function(e) {
-		// Add support for iPad.
-		if (e.touches && e.touches.length > 0) {
-			e = e.touches.item(0);
-		}
-		
 		var x = 0, y = 0;
-		
-		var canvas = (e && e.target) || (window.event && window.event.srcElement);
-		var rect = canvas.getBoundingClientRect();
-		return {x: e.clientX - rect.left, y: e.clientY - rect.top};
-		
-		// Old code.
-		/*
-		if (!e) {
+		if (e.touches && e.touches.length > 0) {
+			// Add support for iPad.
+			var canvas = (e && e.target) || (window.event && window.event.srcElement);
+			var rect = canvas.getBoundingClientRect();
+			x = e.clientX - rect.left;
+			y = e.clientY - rect.top;
+		}
+		else if (!e) {
 			e = window.event;
 		}
 		if (typeof e.offsetX === 'number') {
@@ -197,7 +192,6 @@ var jscolor = {
 		}
 		 
 		return { x: x, y: y };
-		*/
 	},
 
 
@@ -631,7 +625,7 @@ var jscolor = {
 			p.box.onmouseup =
 			p.box.onmouseout = function() {
 				// Don't focus to make it less annoying on iPad.
-				// target.focus();
+				target.focus();
 			};
 			p.box.onmousedown = function() {
 				abortBlur=true;
