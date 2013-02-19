@@ -613,7 +613,10 @@ var jscolor = {
 
 			// controls interaction
 			p.box.onmouseup =
-			p.box.onmouseout = function() { target.focus(); };
+			p.box.onmouseout = function() {
+				// Don't focus to make it less annoying on iPad.
+				// target.focus();
+			};
 			p.box.onmousedown = function() {
 				abortBlur=true;
 			};
@@ -629,6 +632,7 @@ var jscolor = {
 					dispatchImmediateChange();
 				}
 			};
+			
 			p.padM.onmouseup =
 			p.padM.onmouseout = function() { if(holdPad) { holdPad=false; jscolor.fireEvent(valueElement,'change'); } };
 			p.padM.onmousedown = function(e) {
