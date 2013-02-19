@@ -146,7 +146,7 @@ function pickColorAt(x, y) {
 	}
 	
 	// Return white as default.
-	return [255, 255, 255];
+	return [255, 255, 255, 1];
 }
 
 function addSquare(x, y, color) {
@@ -235,7 +235,6 @@ function makeAddPixel(id) {
 		
 		var shouldPickColor = colorPicker.checked;
 		var shouldErase = eraser.checked || pencil.checked;
-		var shouldAddSquare = pencil.checked;
 		
 		var pos = mousePos(box, event);
 		var x = pos[0];
@@ -244,7 +243,7 @@ function makeAddPixel(id) {
 		var gx = gridPos[0];
 		var gy = gridPos[1];
 		var color = selected_color;
-		
+		var shouldAddSquare = pencil.checked;
 		
 		if (shouldErase) {
 			erasePixel(gx, gy);
@@ -255,6 +254,7 @@ function makeAddPixel(id) {
 		if (shouldPickColor) {
 			var c = pickColorAt(gx, gy);
 			selectedColor.color.fromRGB(c[0]/255, c[1]/255, c[2]/255);
+			selected_color = c;
 		}
 		
 		renderWorkArea();

@@ -2,11 +2,16 @@
 + Completed on later day.
 - Decided against on later day.
 
+19.02.2013
+
+*Bug when picking color.
+
 18.02.2013
 
 Add undo and redo.
 Make the page remember the last selected color when refreshing.
 Make the tool images transparent.
+Add title.
 Add quotes.
 *Add analytics.
 *Add 'flattr' button.
