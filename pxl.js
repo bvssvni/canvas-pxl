@@ -30,6 +30,9 @@ var grid_style = "#888888";
 var grid_width = 16;
 var grid_height = 16;
 
+// Don't scroll on iPad.
+$(document).bind('touchmove', false);
+
 $(function() {
   $( "#tool" ).buttonset();
 });
@@ -284,6 +287,37 @@ function makeAddPixel(id) {
 		return false;
 	}
 	box.addEventListener("mouseup", mouseup, true);
+	
+	var touchstart = function(event) {
+		dragging = true;
+		
+		event.preventDefault();
+		var touches = event.changedTouches;
+		for (var i = 0; i < touches.length; i++) {
+			var touch = touches[i];
+			addPixel(touch);
+		}
+	}
+	box.addEventListener("touchstart", touchstart, false);
+	
+	var touchmove = function(event) {
+		event.preventDefault();
+		var touches = event.changedTouches;
+		for (var i = 0; i < touches.length; i++) {
+			var touch = touches[i];
+			addPixel(touch);
+		}
+	}
+	box.addEventListener("touchmove", touchmove, false);
+	
+	var touchend = function(event) {
+		event.preventDefault();
+		var touches = event.changedTouches;
+		if (touches.length == 0) {
+			dragging = false;
+		}
+	}
+	box.addEventListener("touchend", touchend, false);
 }
 
 function onLoad() {

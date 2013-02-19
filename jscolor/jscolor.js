@@ -614,7 +614,9 @@ var jscolor = {
 			// controls interaction
 			p.box.onmouseup =
 			p.box.onmouseout = function() { target.focus(); };
-			p.box.onmousedown = function() { abortBlur=true; };
+			p.box.onmousedown = function() {
+				abortBlur=true;
+			};
 			p.box.onmousemove = function(e) {
 				if (holdPad || holdSld) {
 					holdPad && setPad(e);
