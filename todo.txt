@@ -4,6 +4,7 @@
 
 19.02.2013
 
+*Bug in 'setCharAt' function.
 *Make the tool images transparent.
 *Touch support when selecting color.
 *Make color selection less annoying on iPad.

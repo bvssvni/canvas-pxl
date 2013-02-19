@@ -323,7 +323,7 @@ function makeAddPixel(id) {
 function onLoad() {
 	// Set prototype function.
 	String.prototype.setCharAt = function(index, chr) {
-		if(index > this.length-1) return str;
+		if(index > this.length-1) return this;
 		return this.substr(0,index) + chr + this.substr(index+1);
 	}
 	
