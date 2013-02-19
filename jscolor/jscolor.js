@@ -172,8 +172,22 @@ var jscolor = {
 
 
 	getRelMousePos : function(e) {
+		// Add support for iPad.
+		if (e.touches && e.touches.length > 0) {
+			e = e.touches.item(0);
+		}
+		
 		var x = 0, y = 0;
-		if (!e) { e = window.event; }
+		
+		var canvas = (e && e.target) || (window.event && window.event.srcElement);
+		var rect = canvas.getBoundingClientRect();
+		return {x: e.clientX - rect.left, y: e.clientY - rect.top};
+		
+		// Old code.
+		/*
+		if (!e) {
+			e = window.event;
+		}
 		if (typeof e.offsetX === 'number') {
 			x = e.offsetX;
 			y = e.offsetY;
@@ -181,7 +195,9 @@ var jscolor = {
 			x = e.layerX;
 			y = e.layerY;
 		}
+		 
 		return { x: x, y: y };
+		*/
 	},
 
 
@@ -631,6 +647,28 @@ var jscolor = {
 					}
 					dispatchImmediateChange();
 				}
+			};
+			
+			// Touch support for iPad.
+			p.padM.ontouchmove =
+			p.padM.ontouchstart =
+			 function(e) {
+				e.preventDefault();
+				// if the slider is at the bottom, move it up
+				switch(modeID) {
+					case 0: if (THIS.hsv[2] === 0) { THIS.fromHSV(null, null, 1.0); }; break;
+					case 1: if (THIS.hsv[1] === 0) { THIS.fromHSV(null, 1.0, null); }; break;
+				}
+				holdPad=true;
+				setPad(e);
+				dispatchImmediateChange();
+			};
+			p.sldM.ontouchmove =
+			p.sldM.ontouchstart = function(e) {
+				e.preventDefault();
+				holdSld=true;
+				setSld(e);
+				dispatchImmediateChange();
 			};
 			
 			p.padM.onmouseup =
