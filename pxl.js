@@ -4,10 +4,14 @@
  * @version 0.000, http://isprogrammingeasy.blogspot.no/2012/08/angular-degrees-versioning-notation.html
  * @license GNU Lesser General Public License, http://www.gnu.org/copyleft/lesser.html
  * @author  Sven Nilsen, http://www.cutoutpro.com
- * @created 2008-06-15
- * @updated 2012-07-06
  * @link    http://www.github.com/bvssvni/canvas-pxl
  */
+
+var quotes = [
+"Click on the preview icons to open as PNG.",
+"Support Cutout Pro by flattr this page once a month -->",
+"To get tool information, hold mouse cursor over toolbar."
+];
 
 var workarea_id = "workarea";
 var pencil_id = "pencil";
@@ -321,6 +325,10 @@ function makeAddPixel(id) {
 }
 
 function onLoad() {
+	var quote = document.getElementById("quote");
+	var rnd = Math.floor(Math.random() * quotes.length);
+	quote.textContent = "\"" + quotes[rnd % quotes.length] + "\"";
+	
 	// Set prototype function.
 	String.prototype.setCharAt = function(index, chr) {
 		if(index > this.length-1) return this;
