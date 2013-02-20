@@ -1,5 +1,9 @@
 PXL - V0.000
 
+IPAD EXPERIENCE
+
+Works at iPad and supports multi-touch.
+
 SAVE IMAGE AS PNG
 
 Click on one of the preview images.

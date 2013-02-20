@@ -10,7 +10,8 @@
 var quotes = [
 "Click on the preview icons to open as PNG.",
 "Support Cutout Pro by flattr this page once a month -->",
-"To get tool information, hold mouse cursor over toolbar."
+"To get tool information, hold mouse cursor over toolbar.",
+"This page works great at iPad as well. Enjoy!"
 ];
 
 var workarea_id = "workarea";
