@@ -22,6 +22,7 @@ var selected_color_id = "selectedColor";
 var preview_id = "preview";
 var preview2_id = "preview2";
 var preview4_id = "preview4";
+var tiled_id = "tiled";
 var square_colors = [];
 var squares = [];
 var scale_x = 32;
@@ -210,6 +211,34 @@ function renderPreview(id, scale) {
 	}
 }
 
+function renderTiled(id) {
+	var scale = 2;
+	var preview = document.getElementById(id);
+	var ctx = preview.getContext("2d");
+	var w = preview.width;
+	var h = preview.height;
+	ctx.fillStyle = workarea_background_style;
+	ctx.fillRect(0, 0, w, h);
+	
+	for (var offx = 0; offx < 3; offx++) {
+		for (var offy = 0; offy < 3; offy++) {
+			for (var i = 0; i < squares.length; i++) {
+				var c = square_colors[i];
+				var str = "rgba("+c[0]+","+c[1]+","+c[2]+","+c[3]+")";
+				ctx.fillStyle = str;
+				
+				var square = squares[i];
+				var x = square[0] * scale;
+				var y = square[1] * scale;
+				var fx = 16 * scale * offx + x;
+				var fy = 16 * scale * offy + y;
+				
+				ctx.fillRect(fx, fy, scale, scale);
+			}
+		}
+	}
+}
+
 function renderWorkArea() {
 	var workarea = document.getElementById(workarea_id);
 	var ctx = workarea.getContext("2d");
@@ -226,6 +255,8 @@ function renderWorkArea() {
 	renderPreview(preview_id, 1);
 	renderPreview(preview2_id, 2);
 	renderPreview(preview4_id, 4);
+	
+	renderTiled(tiled_id);
 }
 
 function makeAddPixel(id) {
@@ -292,6 +323,7 @@ function makeAddPixel(id) {
 		return false;
 	}
 	box.addEventListener("mouseup", mouseup, true);
+	box.addEventListener("mouseout", mouseup, true);
 	
 	var touchstart = function(event) {
 		dragging = true;

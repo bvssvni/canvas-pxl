@@ -2,6 +2,11 @@
 + Completed on later day.
 - Decided against on later day.
 
+03.03.2013
+
+*Bug when moving mouse outside area.
+*Preview of tiled texture.
+
 20.02.2013
 
 *Add quote about iPad.
